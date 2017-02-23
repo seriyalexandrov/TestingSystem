@@ -1,9 +1,6 @@
-package com.hibernate.skill.checker.dao.layers;
+package com.ncedu.testing.entity;
 
-import com.hibernate.skill.checker.dao.layers.DAOimpl.CourseDAO;
-import com.hibernate.skill.checker.dao.layers.DAOimpl.QuestionDAO;
-import com.hibernate.skill.checker.dao.layers.DAOimpl.TestDAO;
-import com.hibernate.skill.checker.dao.layers.DAOimpl.UserDAO;
+import com.ncedu.testing.entity.dao.*;
 
 /**
  * Created by dreikaa on 2/20/17.

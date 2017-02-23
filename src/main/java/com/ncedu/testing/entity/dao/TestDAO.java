@@ -1,5 +1,7 @@
 package com.ncedu.testing.entity.dao;
 
+import com.ncedu.testing.entity.Test;
+
 import java.sql.SQLException;
 import java.util.Collection;
 

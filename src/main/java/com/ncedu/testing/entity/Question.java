@@ -1,4 +1,4 @@
-package com.ncedu.testing.entity.dao;
+package com.ncedu.testing.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,4 +1,4 @@
-package com.hibernate.skill.checker.dao.layers;
+package com.ncedu.testing.entity;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

@@ -1,4 +1,4 @@
-package com.ncedu.testing.entity.dao;
+package com.ncedu.testing.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,24 +9,23 @@ import javax.persistence.Table;
  * Created by dreikaa on 2/20/17.
  */
 @Entity
-@Table(name = "tests")
-public class Test {
+@Table(name = "courses")
+public class Course {
     @Id
-    @Column(name = "test_id")
+    @Column(name = "course_id")
     private Long id;
-    @Column(name = "test_name")
+    @Column(name = "course_name")
     private String name;
-    @Column(name = "test_info")
+    @Column(name = "course_info")
     private String info;
 
-    public Test(Long id, String name, String info) {
+    public Course(Long id, String name, String info) {
         this.id = id;
         this.name = name;
         this.info = info;
     }
 
     public Long getId() {
-
         return id;
     }
 
@@ -50,6 +49,7 @@ public class Test {
         this.info = info;
     }
 
-    public Test() {
+    public Course() {
+
     }
 }
