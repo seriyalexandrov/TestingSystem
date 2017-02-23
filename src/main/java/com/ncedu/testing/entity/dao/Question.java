@@ -1,4 +1,4 @@
-package com.hibernate.skill.checker.entitys;
+package com.ncedu.testing.entity.dao;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

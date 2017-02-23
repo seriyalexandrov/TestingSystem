@@ -1,6 +1,4 @@
-package com.hibernate.skill.checker.dao.layers.DAOimpl;
-
-import com.hibernate.skill.checker.entitys.Course;
+package com.ncedu.testing.entity.dao;
 
 import java.sql.SQLException;
 import java.util.Collection;

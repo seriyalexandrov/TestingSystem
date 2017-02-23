@@ -1,7 +1,7 @@
 package com.hibernate.skill.checker.dao.layers;
 
 import com.hibernate.skill.checker.dao.layers.DAOimpl.UserDAO;
-import com.hibernate.skill.checker.entitys.User;
+import com.ncedu.testing.entity.dao.User;
 import org.hibernate.Session;
 
 import java.sql.SQLException;

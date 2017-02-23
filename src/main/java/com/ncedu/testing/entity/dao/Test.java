@@ -1,4 +1,4 @@
-package com.hibernate.skill.checker.entitys;
+package com.ncedu.testing.entity.dao;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,23 +9,24 @@ import javax.persistence.Table;
  * Created by dreikaa on 2/20/17.
  */
 @Entity
-@Table(name = "courses")
-public class Course {
+@Table(name = "tests")
+public class Test {
     @Id
-    @Column(name = "course_id")
+    @Column(name = "test_id")
     private Long id;
-    @Column(name = "course_name")
+    @Column(name = "test_name")
     private String name;
-    @Column(name = "course_info")
+    @Column(name = "test_info")
     private String info;
 
-    public Course(Long id, String name, String info) {
+    public Test(Long id, String name, String info) {
         this.id = id;
         this.name = name;
         this.info = info;
     }
 
     public Long getId() {
+
         return id;
     }
 
@@ -49,7 +50,6 @@ public class Course {
         this.info = info;
     }
 
-    public Course() {
-
+    public Test() {
     }
 }
