@@ -1,9 +1,6 @@
 package com.ncedu.testing.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by dreikaa on 2/20/17.
@@ -25,9 +22,32 @@ public class Test {
         this.info = info;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
 
         return id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Test test = (Test) o;
+
+        if (!id.equals(test.id)) return false;
+        if (!name.equals(test.name)) return false;
+        return info.equals(test.info);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id.hashCode();
+        result = 31 * result + name.hashCode();
+        result = 31 * result + info.hashCode();
+        return result;
     }
 
     public void setId(Long id) {

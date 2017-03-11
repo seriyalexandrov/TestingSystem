@@ -1,9 +1,6 @@
 package com.ncedu.testing.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by dreikaa on 2/20/17.
@@ -25,6 +22,28 @@ public class Course {
         this.info = info;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Course course = (Course) o;
+
+        if (!id.equals(course.id)) return false;
+        if (!name.equals(course.name)) return false;
+        return info.equals(course.info);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id.hashCode();
+        result = 31 * result + name.hashCode();
+        result = 31 * result + info.hashCode();
+        return result;
+    }
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }
