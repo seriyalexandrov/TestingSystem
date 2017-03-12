@@ -1,6 +1,7 @@
 package com.ncedu.testing.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by dreikaa on 2/20/17.
@@ -15,6 +16,10 @@ public class User {
     private String login;
     @Column(name = "user_pass")
     private String password;
+    @Transient
+    @Column(name = "user_passConfirm")
+    private String passwordConfirm;
+    private Set<Role> roles;
     @Column(name = "user_email")
     private String email;
 
@@ -32,7 +37,6 @@ public class User {
         if (!login.equals(user.login)) return false;
         if (!password.equals(user.password)) return false;
         return email.equals(user.email);
-
     }
 
     @Override
@@ -50,6 +54,7 @@ public class User {
         this.password = password;
         this.email = email;
     }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
@@ -58,6 +63,24 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
+    }
+
+    @ManyToMany
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
     public String getLogin() {

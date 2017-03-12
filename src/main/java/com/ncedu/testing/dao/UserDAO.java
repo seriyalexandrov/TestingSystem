@@ -1,4 +1,4 @@
-package com.ncedu.testing.entity.dao;
+package com.ncedu.testing.dao;
 
 import com.ncedu.testing.entity.User;
 

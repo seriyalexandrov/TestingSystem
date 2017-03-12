@@ -1,6 +1,6 @@
 package com.ncedu.testing.entity;
 
-import com.ncedu.testing.entity.dao.*;
+import com.ncedu.testing.dao.*;
 
 /**
  * Created by dreikaa on 2/20/17.

@@ -1,7 +1,7 @@
-package com.ncedu.testing.entity.dao;
+package com.ncedu.testing.dao;
 
+import com.ncedu.testing.entity.Course;
 import com.ncedu.testing.entity.HibernateUtil;
-import com.ncedu.testing.entity.Test;
 import org.hibernate.Session;
 
 import java.sql.SQLException;
@@ -12,38 +12,38 @@ import java.util.List;
 /**
  * Created by dreikaa on 2/20/17.
  */
-public class TestDAOImpl implements TestDAO {
+public class CourseDAOImpl implements CourseDAO {
     private Session session;
 
-    public TestDAOImpl() {
+    public CourseDAOImpl() {
         session = HibernateUtil.getSessionFactory().openSession();
     }
 
-    public void addTest(Test course) throws SQLException {
+    public void addCourse(Course course) throws SQLException {
         session.beginTransaction();
         session.save(course);
         session.getTransaction().commit();
     }
 
-    public void updateTest(Test course) throws SQLException {
+    public void updateCourse(Course course) throws SQLException {
         session.beginTransaction();
         session.update(course);
         session.getTransaction().commit();
     }
 
-    public Test getTestById(Long id) throws SQLException {
-        Test course = null;
-        course = (Test) session.load(Test.class, id);
+    public Course getCourseById(Long id) throws SQLException {
+        Course course = null;
+        course = (Course) session.load(Course.class, id);
         return course;
     }
 
-    public Collection<Test> getAllTests() throws SQLException {
-        List<Test> course = new ArrayList<Test>();
-        course = session.createCriteria(Test.class).list();
+    public Collection<Course> getAllCourses() throws SQLException {
+        List<Course> course = new ArrayList<Course>();
+        course = session.createCriteria(Course.class).list();
         return course;
     }
 
-    public void deleteTest(Test course) throws SQLException {
+    public void deleteCourse(Course course) throws SQLException {
         session.beginTransaction();
         session.delete(course);
         session.getTransaction().commit();
