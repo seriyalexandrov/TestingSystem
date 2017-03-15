@@ -13,7 +13,7 @@ public class User {
     @Column(name = "user_id")
     private Long id;
     @Column(name = "user_login")
-    private String login;
+    private String username;
     @Column(name = "user_pass")
     private String password;
     @Transient
@@ -34,7 +34,7 @@ public class User {
         User user = (User) o;
 
         if (!id.equals(user.id)) return false;
-        if (!login.equals(user.login)) return false;
+        if (!username.equals(user.username)) return false;
         if (!password.equals(user.password)) return false;
         return email.equals(user.email);
     }
@@ -42,15 +42,15 @@ public class User {
     @Override
     public int hashCode() {
         int result = id.hashCode();
-        result = 31 * result + login.hashCode();
+        result = 31 * result + username.hashCode();
         result = 31 * result + password.hashCode();
         result = 31 * result + email.hashCode();
         return result;
     }
 
-    public User(Long id, String login, String password, String email) {
+    public User(Long id, String username, String password, String email) {
         this.id = id;
-        this.login = login;
+        this.username = username;
         this.password = password;
         this.email = email;
     }
@@ -83,12 +83,12 @@ public class User {
         this.roles = roles;
     }
 
-    public String getLogin() {
-        return login;
+    public String getUsername() {
+        return username;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
