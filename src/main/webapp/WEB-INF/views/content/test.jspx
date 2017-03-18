@@ -10,8 +10,13 @@
     <h1>TEST</h1>
 
     <ul>
-        <c:forEach var="item" items="${questions}">
-            <li>${item.value}</li>
+        <c:forEach var="question" items="${questions}">
+            <li>${question.question}</li>
+            <ul>
+                <c:forEach var="answer" items="${question.answers}">
+                <li>${answer}</li>
+                </c:forEach>
+            </ul>
         </c:forEach>
     </ul>
 </div>
