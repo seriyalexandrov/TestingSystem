@@ -5,4 +5,7 @@
     <definition extends="default" name="values/list">
         <put-attribute name="body" value="/WEB-INF/views/content/list.jspx" />
     </definition>
+    <definition extends="default" name="questions/test">
+        <put-attribute name="body" value="/WEB-INF/views/content/test.jspx" />
+    </definition>
 </tiles-definitions>
