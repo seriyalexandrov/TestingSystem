@@ -15,25 +15,27 @@ import java.util.List;
 @Controller
 public class testServicesController {
 
-    private ValueService valueService;
+
     ArrayList<Question> questions = new ArrayList<>();
     ArrayList<String> answers = new ArrayList<>();
 
-
-    @RequestMapping(method = RequestMethod.GET)
-    public String list(Model uiModel) {
-
+    public void setQuestions() {
         answers.add("1");
         answers.add("2");
         Question question = new Question("123",answers );
         questions.add(question);
+        Question question2 = new Question("1234",answers );
+        questions.add(question2);
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public String list(Model uiModel) {
+
+        setQuestions();
         uiModel.addAttribute("questions", questions);
 
         return "questions/test";
     }
 
-    @Autowired
-    public void setValueService(ValueService valueService) {
-        this.valueService = valueService;
-    }
+
 }
