@@ -1,8 +1,0 @@
-DROP TABLE IF EXISTS values_table;
-
-CREATE TABLE values_table (
-  ID      INT         NOT NULL AUTO_INCREMENT,
-  VALUE   VARCHAR(60) NOT NULL,
-  VERSION INT         NOT NULL DEFAULT 0,
-  PRIMARY KEY (ID)
-);
