@@ -19,7 +19,7 @@
             <form:errors path="name"/>
             <form:input path="name"/>
         </div>
-        <div class="field">
+        <div>
             <form:label for="password" path="password">Password:</form:label>
             <form:errors path="password"/>
             <form:input path="password"/>
