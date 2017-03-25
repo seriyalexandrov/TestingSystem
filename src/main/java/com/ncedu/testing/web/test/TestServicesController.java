@@ -11,16 +11,24 @@ import java.util.ArrayList;
 @Controller
 public class TestServicesController {
 
-    ArrayList<Question> questions = new ArrayList<>();
-    ArrayList<String> answers = new ArrayList<>();
-
 
     @RequestMapping(method = RequestMethod.GET)
     public String list(Model uiModel) {
 
-        answers.add("1");
-        answers.add("2");
-        Question question = new Question("123",answers );
+        ArrayList<Question> questions = new ArrayList<>();
+        ArrayList<String> answers = new ArrayList<>();
+
+        answers.add("Coffee");
+        answers.add("Tea");
+        answers.add("Smoothie");
+        Question question = new Question(1,"Favourite programmer's drink", answers);
+        questions.add(question);
+
+        answers = new ArrayList<>();
+        answers.add("C");
+        answers.add("Java");
+        answers.add("PHP");
+        question = new Question(2, "Best programming language", answers);
         questions.add(question);
         uiModel.addAttribute("questions", questions);
 

@@ -3,29 +3,42 @@ package com.ncedu.testing.web.test;
 import java.util.ArrayList;
 
 public class Question {
-    private String question;
+    private int id;
+    private String text;
     private ArrayList<String> answers = new ArrayList<>();
 
     public Question(String question, ArrayList<String> answers) {
-        this.question = question;
+        this.text = question;
+        this.answers = answers;
+    }
+
+    public Question(int id, String question, ArrayList<String> answers) {
+        this.id = id;
+        this.text = question;
         this.answers = answers;
     }
 
     public ArrayList<String> getAnswers() {
-
         return answers;
-
     }
 
     public void setAnswers(ArrayList<String> answers) {
         this.answers = answers;
     }
 
-    public String getQuestion() {
-        return question;
+    public String getText() {
+        return text;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

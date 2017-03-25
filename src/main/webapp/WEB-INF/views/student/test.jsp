@@ -12,14 +12,15 @@
 <h1>TEST</h1>
 
 <ul>
-    <c:forEach var="question" items="${questions}">
-        <li>${question.question}</li>
-        <ul>
+    <form method="post">
+        <c:forEach var="question" items="${questions}">
+            <li><p><b>${question.text}</b></p></li>
             <c:forEach var="answer" items="${question.answers}">
-                <li>${answer}</li>
+                <p><input type="radio" name="${question.id}" value="${answer}"/>${answer}</p>
             </c:forEach>
-        </ul>
-    </c:forEach>
+        </c:forEach>
+        <input type="submit" value="Send"/>
+    </form>
 </ul>
 </body>
 </html>
