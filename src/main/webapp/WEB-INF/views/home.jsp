@@ -7,6 +7,7 @@
 </head>
 <body>
 <p>Go to <a href="<c:url value='admin/user' />">Users Management</a></p>
+<p>Go to <a href="<c:url value='student/courses' />">Courses</a></p>
 <p>Go to <a href="<c:url value='student/questions' />">Test Questions</a></p>
 <a href="<c:url value="j_spring_security_logout" />"> Logout</a>
 </body>
