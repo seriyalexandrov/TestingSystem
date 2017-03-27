@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Users</title>
+    <title>Questions</title>
     <link rel="stylesheet" href="<c:url value='/styles/default.css'/>">
 </head>
 <body>
