@@ -8,7 +8,9 @@ import javax.persistence.*;
 @Entity
 @Table(name = "results")
 public class Result {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "result_id")
     private Long id;
 
@@ -21,20 +23,18 @@ public class Result {
 
     @ManyToOne(optional=false)
     @JoinColumn(name="USER_ID",referencedColumnName = "USER_ID")
-    private Test user;
+    private User user;
 
     public Result() {
     }
 
-    public Result(Long id, Double points, Test test, Test user) {
+    public Result(Long id, Double points, Test test, User user) {
         this.id = id;
         this.points = points;
         this.test = test;
         this.user = user;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }
@@ -59,11 +59,11 @@ public class Result {
         this.test = test;
     }
 
-    public Test getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(Test user) {
+    public void setUser(User user) {
         this.user = user;
     }
 

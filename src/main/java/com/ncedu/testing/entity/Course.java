@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Table(name = "courses")
 public class Course {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "course_id")
     private Long id;
 
@@ -46,7 +47,6 @@ public class Course {
         return result;
     }
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }
