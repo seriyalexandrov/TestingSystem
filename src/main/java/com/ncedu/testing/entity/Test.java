@@ -8,15 +8,22 @@ public class Test {
     @Id
     @Column(name = "test_id")
     private Long id;
+
     @Column(name = "test_name")
     private String name;
+
     @Column(name = "test_info")
     private String info;
 
-    public Test(Long id, String name, String info) {
+    @ManyToOne(optional=false)
+    @JoinColumn(name="COURSE_ID",referencedColumnName = "COURSE_ID")
+    private Course course;
+
+    public Test(Long id, String name, String info, Course course) {
         this.id = id;
         this.name = name;
         this.info = info;
+        this.course = course;
     }
 
     public Test() {
@@ -42,6 +49,7 @@ public class Test {
 
         if (!id.equals(test.id)) return false;
         if (!name.equals(test.name)) return false;
+        if (!course.equals(test.course)) return false;
         return info.equals(test.info);
 
     }
@@ -51,7 +59,16 @@ public class Test {
         int result = id.hashCode();
         result = 31 * result + name.hashCode();
         result = 31 * result + info.hashCode();
+        result = 31 * result + course.hashCode();
         return result;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
     public String getName() {

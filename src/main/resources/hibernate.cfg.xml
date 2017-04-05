@@ -8,5 +8,6 @@
         <mapping class="com.ncedu.testing.entity.Course"/>
         <mapping class="com.ncedu.testing.entity.Question"/>
         <mapping class="com.ncedu.testing.entity.Test"/>
+        <mapping class="com.ncedu.testing.entity.Result"/>
     </session-factory>
 </hibernate-configuration>
