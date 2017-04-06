@@ -6,20 +6,20 @@ import javax.persistence.*;
 @Table(name = "questions")
 public class Question {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "question_id")
     private Long id;
     @Column(name = "options")
     private String options;
-    @Column(name = "points")
-    private Double points;
-    @Column(name = "test_id")
-    private Double test_id;
+
+    @ManyToOne(optional=false)
+    @JoinColumn(name="TEST_ID",referencedColumnName = "TEST_ID")
+    private Test test;
 
     public Question(Long id, String options, Double points, Double test_id) {
         this.id = id;
         this.options = options;
-        this.points = points;
-        this.test_id = test_id;
+        this.test = test;
     }
 
     public Question() {
@@ -34,8 +34,7 @@ public class Question {
 
         if (!id.equals(question.id)) return false;
         if (!options.equals(question.options)) return false;
-        if (!points.equals(question.points)) return false;
-        return test_id.equals(question.test_id);
+        return test.equals(question.test);
 
     }
 
@@ -43,13 +42,10 @@ public class Question {
     public int hashCode() {
         int result = id.hashCode();
         result = 31 * result + options.hashCode();
-        result = 31 * result + points.hashCode();
-        result = 31 * result + test_id.hashCode();
+        result = 31 * result + test.hashCode();
         return result;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }
@@ -66,19 +62,11 @@ public class Question {
         this.options = options;
     }
 
-    public Double getPoints() {
-        return points;
+    public Test getTest() {
+        return test;
     }
 
-    public void setPoints(Double points) {
-        this.points = points;
-    }
-
-    public Double getTest_id() {
-        return test_id;
-    }
-
-    public void setTest_id(Double test_id) {
-        this.test_id = test_id;
+    public void setTest(Test test) {
+        this.test = test;
     }
 }
