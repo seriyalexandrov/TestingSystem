@@ -25,10 +25,12 @@ public class DbInitializer {
         User user = new User();
         user.setName("a");
         user.setPassword("a");
+        user.setEmail("a@gmail.com");
         PasswordEncoder passwordEncoder = new StandardPasswordEncoder();
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setPasswordConfirm(user.getPassword());
         userService.save(user);
-
+        
         Course course1 = new Course((long) 1, "Java: Syntax", "Some basics of Java Syntax");
         Course course2 = new Course((long) 2, "Java: JDBC", "Data processing over JDBC");
         Course course3 = new Course((long) 3, "Java: Spring Framework", "Check knowledge of ");
