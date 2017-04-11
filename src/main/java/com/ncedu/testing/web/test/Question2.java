@@ -7,7 +7,7 @@ public class Question2 {
     private String text;
     private String options;
     private String cAnswer;
-    private ArrayList<String> answers;
+    private ArrayList<String> answers = new ArrayList<>();
 
 
     public Question2(long id, String text, String options, String cAnswer) {
@@ -15,6 +15,14 @@ public class Question2 {
         this.text = text;
         this.options = options;
         this.cAnswer = cAnswer;
+    }
+
+    public Question2(long id, String text, String options, String cAnswer, ArrayList<String> answers) {
+        this.id = id;
+        this.text = text;
+        this.options = options;
+        this.cAnswer = cAnswer;
+        this.answers = answers;
     }
 
     public String getOptions() {
@@ -53,10 +61,14 @@ public class Question2 {
         return answers;
     }
 
-    public void setAnswers() {
+    public void genAnswers() {
         String[] answ = options.split("-");
         for(String ans : answ){
             answers.add(ans);
         }
+    }
+
+    public void setAnswers(ArrayList<String> answers) {
+        this.answers = answers;
     }
 }

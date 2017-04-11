@@ -29,11 +29,10 @@ public class TestServicesController {
             e.printStackTrace();
         }
         ArrayList<Question2> questions2 = new ArrayList<>();
-//        answers.add("Coffee");
-//        answers.add("Tea");
-//        answers.add("Smoothie");
-//        Question2 question = new Question2(1,"Favourite programmer's drink", answers, "Tea");
-//        question2s.add(question);
+
+        Question2 questio = new Question2(1,"Favourite programmer's drink", "Tea-Coffee-Juice", "Tea");
+        questio.genAnswers();
+        questions2.add(questio);
 //
 //        answers = new ArrayList<>();
 //        answers.add("C");
@@ -42,12 +41,11 @@ public class TestServicesController {
 //        question = new Question2(2, "Best programming language", answers,"Java");
 //        question2s.add(question);
         for(Question question: questions){
-            System.out.println("dsajdsajhsa");
             Question2 question2 = new Question2(question.getId(),question.getText(),question.getOptions(),question.getcAnswer());
-            question2.setAnswers();
+            question2.genAnswers();
             questions2.add(question2);
-            System.out.print(question2.getcAnswer());
         }
+
         uiModel.addAttribute("questions", questions2);
 
         return "student/test";
