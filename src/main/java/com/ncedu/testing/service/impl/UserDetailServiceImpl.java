@@ -1,6 +1,7 @@
 package com.ncedu.testing.service.impl;
 
 import com.ncedu.testing.dao.UserDao;
+import com.ncedu.testing.dao.impl.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -12,7 +13,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service("userDetailsService")
 public class UserDetailServiceImpl implements UserDetailsService {
@@ -27,9 +30,18 @@ public class UserDetailServiceImpl implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException("Not able to find user");
         }
-        GrantedAuthority grantedAuthority = new SimpleGrantedAuthority("ROLE_ADMIN");
-        List<GrantedAuthority> grantedAuthorities = Arrays.asList(grantedAuthority);
-        return new User(user.getName(), user.getPassword(), grantedAuthorities);
+
+        Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
+        for (Role role : user.getRoles()){
+            grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
+        }
+        return new org.springframework.security.core.userdetails.User(user.getName(), user.getPassword(), grantedAuthorities);
+
+//        GrantedAuthority grantedAuthority = new SimpleGrantedAuthority("ROLE_ADMIN");
+//        List<GrantedAuthority> grantedAuthorities = Arrays.asList(grantedAuthority);
+//        return new User(user.getName(), user.getPassword(), grantedAuthorities);
     }
+
+
 
 }
