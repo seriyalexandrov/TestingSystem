@@ -26,6 +26,23 @@ public class UserServiceImpl implements UserService {
         return userDao.findAll();
     }
 
+    @Override
+    public void updateUser(Long id, User user) {
+        User oldUser = this.get(id);
+
+        if (user.getEmail() != null) {
+            oldUser.setEmail(user.getEmail());
+        }
+        if (user.getName() != null) {
+            oldUser.setName(user.getName());
+        }
+        if (user.getPassword() != null) {
+            oldUser.setPassword(user.getPassword());
+        }
+
+        this.save(oldUser);
+    }
+
     public void save(User user) {
         userDao.save(user);
     }

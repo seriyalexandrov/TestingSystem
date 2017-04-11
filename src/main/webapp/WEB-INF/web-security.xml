@@ -11,7 +11,7 @@
         <security:form-login login-page="/login" authentication-failure-url="/login?failed"/>
         <security:logout/>
         <security:intercept-url pattern="/admin/*" access="ROLE_ADMIN"/>
-        <security:intercept-url pattern="/student/*" access="IS_AUTHENTICATED_FULLY"/>
+        <security:intercept-url pattern="/student/*" access="ROLE_STUDENT"/>
     </security:http>
 
 </beans>
