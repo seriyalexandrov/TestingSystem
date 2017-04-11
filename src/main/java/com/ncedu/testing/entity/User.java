@@ -21,9 +21,15 @@ public class User implements Serializable {
 
     @NotEmpty
     private String email;
+
+    @NotEmpty
     private String password;
+
+    @NotEmpty
     private String passwordConfirm;
-    private Set<Role> roles;
+
+    @NotEmpty
+    private Role role = new Role("ROLE_ADMIN");
 
     public String getEmail() {
         return email;
@@ -41,12 +47,12 @@ public class User implements Serializable {
         this.passwordConfirm = passwordConfirm;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public Role getRole() {
+        return role;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public Long getId() {
