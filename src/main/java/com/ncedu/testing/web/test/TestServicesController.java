@@ -1,37 +1,56 @@
 package com.ncedu.testing.web.test;
 
+import com.ncedu.testing.entity.Question;
+import com.ncedu.testing.entity.User;
+import com.ncedu.testing.service.QuestionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 @RequestMapping("student/questions")
 @Controller
 public class TestServicesController {
 
-
+    @Autowired
+    QuestionService questionService;
     @RequestMapping(method = RequestMethod.GET)
     public String list(Model uiModel) {
-
-        ArrayList<Question> questions = new ArrayList<>();
-        ArrayList<String> answers = new ArrayList<>();
-
-        answers.add("Coffee");
-        answers.add("Tea");
-        answers.add("Smoothie");
-        Question question = new Question(1,"Favourite programmer's drink", answers);
-        questions.add(question);
-
-        answers = new ArrayList<>();
-        answers.add("C");
-        answers.add("Java");
-        answers.add("PHP");
-        question = new Question(2, "Best programming language", answers);
-        questions.add(question);
-        uiModel.addAttribute("questions", questions);
+        List<Question> questions=null;
+        try {
+            questions = questionService.findAll();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        ArrayList<Question2> questions2 = new ArrayList<>();
+//        answers.add("Coffee");
+//        answers.add("Tea");
+//        answers.add("Smoothie");
+//        Question2 question = new Question2(1,"Favourite programmer's drink", answers, "Tea");
+//        question2s.add(question);
+//
+//        answers = new ArrayList<>();
+//        answers.add("C");
+//        answers.add("Java");
+//        answers.add("PHP");
+//        question = new Question2(2, "Best programming language", answers,"Java");
+//        question2s.add(question);
+        for(Question question: questions){
+            System.out.println("dsajdsajhsa");
+            Question2 question2 = new Question2(question.getId(),question.getText(),question.getOptions(),question.getcAnswer());
+            question2.setAnswers();
+            questions2.add(question2);
+            System.out.print(question2.getcAnswer());
+        }
+        uiModel.addAttribute("questions", questions2);
 
         return "student/test";
     }
+
 }

@@ -16,8 +16,7 @@ public class Course {
     @Column(name = "course_info")
     private String info;
 
-    public Course(Long id, String name, String info) {
-        this.id = id;
+    public Course(String name, String info) {
         this.name = name;
         this.info = info;
     }
