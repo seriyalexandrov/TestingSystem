@@ -1,11 +1,9 @@
 package com.ncedu.testing.entity;
 
-import com.ncedu.testing.dao.impl.Role;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -29,7 +27,7 @@ public class User implements Serializable {
     private String passwordConfirm;
 
     @NotEmpty
-    private Role role = new Role("ROLE_ADMIN");
+    private String role = "ROLE_ADMIN";
 
     public String getEmail() {
         return email;
@@ -47,11 +45,11 @@ public class User implements Serializable {
         this.passwordConfirm = passwordConfirm;
     }
 
-    public Role getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(String role) {
         this.role = role;
     }
 
