@@ -27,6 +27,7 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.POST)
     public String post(Model model, User user, BindingResult result) {
+
         if (result.hasErrors()) {
             model.addAttribute("userGrid", userService.findAll());
             return "admin/user";

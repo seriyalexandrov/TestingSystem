@@ -37,7 +37,7 @@ public class DbInitializer {
         Course course2 = new Course("Java: JDBC", "Data processing over JDBC");
         Course course3 = new Course("Java: Spring Framework", "Check knowledge of ");
         Test test = new Test("test1","123",course1);
-        Question question = new Question("123?","1-2-3","2ldsakdsasdjhsa",test);
+        Question question = new Question("123?","1-2-3","2",test);
 
         try {
             courseService.save(course1);

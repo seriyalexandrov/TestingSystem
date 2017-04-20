@@ -28,8 +28,7 @@ public class Result {
     public Result() {
     }
 
-    public Result(Long id, Double points, Test test, User user) {
-        this.id = id;
+    public Result(Double points, Test test, User user) {
         this.points = points;
         this.test = test;
         this.user = user;
