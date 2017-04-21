@@ -49,5 +49,6 @@ public class DbInitializer {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
     }
 }

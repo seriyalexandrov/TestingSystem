@@ -28,8 +28,7 @@ public class Result {
     public Result() {
     }
 
-    public Result(Double points, Test test, User user) {
-        this.points = points;
+    public Result(Test test, User user) {
         this.test = test;
         this.user = user;
     }
@@ -65,5 +64,7 @@ public class Result {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public void addPoints(Double point){ this.points += point; }
 
 }
