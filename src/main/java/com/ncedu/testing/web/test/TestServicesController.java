@@ -4,6 +4,7 @@ import com.ncedu.testing.entity.Question;
 import com.ncedu.testing.entity.Result;
 import com.ncedu.testing.entity.User;
 import com.ncedu.testing.service.QuestionService;
+import com.ncedu.testing.service.TestService;
 import com.ncedu.testing.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
@@ -29,9 +30,13 @@ public class TestServicesController {
 
     @Autowired
     QuestionService questionService;
+    @Autowired
     UserService userService;
+    @Autowired
+    TestService testService;
     @RequestMapping(method = RequestMethod.GET)
     public String list(Model uiModel) {
+        questions2.clear();
         try {
             questions = questionService.findAll();
         }catch (SQLException e){
@@ -40,7 +45,7 @@ public class TestServicesController {
         Question2 questio = new Question2(0,"Favourite programmer's drink", "Tea-Coffee-Juice", "Tea");
         questio.genAnswers();
         questions2.add(questio);
-        System.out.println(userService.get(Long.valueOf(1)).getName());
+//        System.out.println(userService.get(Long.valueOf(1)).getName());
 //
 //        answers = new ArrayList<>();
 //        answers.add("C");
@@ -60,29 +65,23 @@ public class TestServicesController {
 
     @RequestMapping(method = RequestMethod.POST)
     public String post(HttpServletRequest request) {
-        ArrayList<String> results = new ArrayList<>();
-        Question question=null;
         String result;
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName();
+        User user = userService.getUserByName(name);
+        Result res = new Result();
+        res.setTest(questions.get(0).getTest());
+        res.setUser(user);
+        res.setPoints(0.0);
+        for(Question2 question2 : questions2){
+            result = request.getParameter(String.valueOf(question2.getId()));
+            System.out.println("\n\nResult: " + result);
+            if(question2.getcAnswer().equals(result)){
+                res.addPoints(1.0);
+            }
 
-//        Result res = new Result();
-//        try {
-//            res.setTest(questionService.get(questions2.get(0).getId()).getTest());
-//            res.setUser(user);
-//            res.setPoints(0.0);
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        for(Question2 question2 : questions2){
-//            result = request.getParameter(String.valueOf(question2.getId()));
-//            System.out.println("\n\nResult: " + result);
-//            if(question2.getcAnswer().equals(result)){
-//                res.addPoints(1.0);
-//            }
-//
-//        }
-//        System.out.println(res.getPoints());
+        }
+        System.out.println(res.getPoints());
         return "student/test";
     }
 
