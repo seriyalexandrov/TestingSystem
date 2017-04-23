@@ -18,8 +18,40 @@ public class User implements Serializable {
     private String name;
 
     @NotEmpty
+    private String email;
+
+    @NotEmpty
     private String password;
 
+    @NotEmpty
+    private String passwordConfirm;
+
+    @NotEmpty
+    private String role = "ROLE_ADMIN";
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     public Long getId() {
         return id;

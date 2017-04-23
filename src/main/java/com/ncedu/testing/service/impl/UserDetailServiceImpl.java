@@ -11,8 +11,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Service("userDetailsService")
 public class UserDetailServiceImpl implements UserDetailsService {
@@ -27,9 +27,12 @@ public class UserDetailServiceImpl implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException("Not able to find user");
         }
-        GrantedAuthority grantedAuthority = new SimpleGrantedAuthority("ROLE_ADMIN");
-        List<GrantedAuthority> grantedAuthorities = Arrays.asList(grantedAuthority);
-        return new User(user.getName(), user.getPassword(), grantedAuthorities);
+
+        Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
+        grantedAuthorities.add(new SimpleGrantedAuthority(user.getRole()));
+
+        return new org.springframework.security.core.userdetails.User(user.getName(), user.getPassword(), grantedAuthorities);
     }
+
 
 }
