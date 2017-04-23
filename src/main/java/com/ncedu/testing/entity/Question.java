@@ -9,16 +9,20 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "question_id")
     private Long id;
+    @Column(name ="text")
+    private String text;
     @Column(name = "options")
     private String options;
-
+    @Column(name = "correct_answer")
+    private String cAnswer;
     @ManyToOne(optional=false)
     @JoinColumn(name="TEST_ID",referencedColumnName = "TEST_ID")
     private Test test;
 
-    public Question(Long id, String options, Double points, Double test_id) {
-        this.id = id;
+    public Question(String text, String options, String cAnswer, Test test) {
+        this.text = text;
         this.options = options;
+        this.cAnswer = cAnswer;
         this.test = test;
     }
 
@@ -68,5 +72,21 @@ public class Question {
 
     public void setTest(Test test) {
         this.test = test;
+    }
+
+    public String getcAnswer() {
+        return cAnswer;
+    }
+
+    public void setcAnswer(String cAnswer) {
+        this.cAnswer = cAnswer;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 }

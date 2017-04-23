@@ -20,8 +20,7 @@ public class Test {
     @JoinColumn(name="COURSE_ID",referencedColumnName = "COURSE_ID")
     private Course course;
 
-    public Test(Long id, String name, String info, Course course) {
-        this.id = id;
+    public Test(String name, String info, Course course) {
         this.name = name;
         this.info = info;
         this.course = course;
@@ -85,4 +84,5 @@ public class Test {
     public void setInfo(String info) {
         this.info = info;
     }
+
 }
