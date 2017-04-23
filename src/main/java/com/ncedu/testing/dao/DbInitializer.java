@@ -51,10 +51,6 @@ public class DbInitializer {
         user1.setPasswordConfirm(user1.getPassword());
         userService.save(user1);
 
-        Course course1 = new Course((long) 1, "Java: Syntax", "Some basics of Java Syntax");
-        Course course2 = new Course((long) 2, "Java: JDBC", "Data processing over JDBC");
-        Course course3 = new Course((long) 3, "Java: Spring Framework", "Check knowledge of ");
-
         try {
             courseService.save(course1);
             courseService.save(course2);
