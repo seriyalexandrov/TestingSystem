@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.StandardPasswordEncoder;
 
 import javax.annotation.PostConstruct;
 import java.sql.SQLException;
+import java.util.List;
 
 public class DbInitializer {
 
@@ -16,10 +17,13 @@ public class DbInitializer {
 
     @Autowired
     private CourseService courseService;
+
     @Autowired
     private QuestionService questionService;
+
     @Autowired
     private TestService testService;
+
     @Autowired
     private ResultService resultService;
 
@@ -38,8 +42,8 @@ public class DbInitializer {
         Course course1 = new Course("Java: Syntax", "Some basics of Java Syntax");
         Course course2 = new Course("Java: JDBC", "Data processing over JDBC");
         Course course3 = new Course("Java: Spring Framework", "Check knowledge of ");
-        Test test = new Test("test1","123",course1);
-        Question question = new Question("123?","1-2-3","2",test);
+        Test test = new Test("test1","123", course1);
+        Question question = new Question("123?", "1-2-3", "2", test);
       
         User user1 = new User();
         user1.setName("a1");
@@ -51,10 +55,6 @@ public class DbInitializer {
         user1.setPasswordConfirm(user1.getPassword());
         userService.save(user1);
 
-        Course course1 = new Course((long) 1, "Java: Syntax", "Some basics of Java Syntax");
-        Course course2 = new Course((long) 2, "Java: JDBC", "Data processing over JDBC");
-        Course course3 = new Course((long) 3, "Java: Spring Framework", "Check knowledge of ");
-
         try {
             courseService.save(course1);
             courseService.save(course2);
@@ -62,6 +62,23 @@ public class DbInitializer {
             testService.save(test);
             questionService.save(question);
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            List<Course> list = courseService.findAll();
+            System.out.println("----------------------Debug------------------------");
+            for (Course c : list) {
+                System.out.format("Course #%d: %s\n", c.getId(), c.getName());
+                for (Test t : c.getTestList()) {
+                    System.out.format("\t Test #%d: %s\n", t.getId(), t.getName());
+                    for (Question q : t.getQuestionList()) {
+                        System.out.format("\t\t Question #%d: %s\n", q.getId(), q.getText());
+                    }
+                }
+            }
+            System.out.println("----------------------Debug------------------------");
         } catch (SQLException e) {
             e.printStackTrace();
         }

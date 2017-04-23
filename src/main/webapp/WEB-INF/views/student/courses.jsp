@@ -12,7 +12,7 @@
 
 <ul>
     <c:forEach var="course" items="${courses}">
-        <li><p>${course.name}</p></li>
+        <li><p><a href="/${course.id}">${course.name}</a></p></li>
     </c:forEach>
 </ul>
 </body>

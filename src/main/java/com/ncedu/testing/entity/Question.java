@@ -9,12 +9,16 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "question_id")
     private Long id;
+
     @Column(name ="text")
     private String text;
+
     @Column(name = "options")
     private String options;
+
     @Column(name = "correct_answer")
     private String cAnswer;
+
     @ManyToOne(optional=false)
     @JoinColumn(name="TEST_ID",referencedColumnName = "TEST_ID")
     private Test test;
