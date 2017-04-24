@@ -8,11 +8,12 @@
     <title>Courses</title>
 </head>
 <body>
-<h1>COURSES</h1>
+<h1>${course.name}</h1>
+<h3><p>${course.info}</p></h3>
 
 <ul>
-    <c:forEach var="course" items="${courses}">
-        <li><p><a href="courses/${course.id}">${course.name}</a></p></li>
+    <c:forEach var="test" items="${course.testList}">
+        <li><p><a href="tests/${test.id}">${test.name}</a></p></li>
     </c:forEach>
 </ul>
 </body>

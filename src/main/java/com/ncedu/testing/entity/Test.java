@@ -1,6 +1,7 @@
 package com.ncedu.testing.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "tests")
@@ -19,6 +20,9 @@ public class Test {
     @ManyToOne(optional=false)
     @JoinColumn(name="COURSE_ID",referencedColumnName = "COURSE_ID")
     private Course course;
+
+    @OneToMany(mappedBy = "test")
+    private List<Question> questionList;
 
     public Test(String name, String info, Course course) {
         this.name = name;
@@ -85,4 +89,11 @@ public class Test {
         this.info = info;
     }
 
+    public List<Question> getQuestionList() {
+        return questionList;
+    }
+
+    public void setQuestionList(List<Question> questionList) {
+        this.questionList = questionList;
+    }
 }
