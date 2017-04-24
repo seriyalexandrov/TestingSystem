@@ -39,49 +39,48 @@ public class DbInitializer {
         user.setPasswordConfirm(user.getPassword());
         userService.save(user);
 
-        Course course1 = new Course("Java: Syntax", "Some basics of Java Syntax");
-        Course course2 = new Course("Java: JDBC", "Data processing over JDBC");
-        Course course3 = new Course("Java: Spring Framework", "Check knowledge of ");
-        Test test = new Test("test1","123", course1);
-        Question question = new Question("123?", "1-2-3", "2", test);
-      
+        Course java_course = new Course("JAVA language", "Learn the basics of JAVA programming language.");
+            Test java_test1 = new Test("Java: Syntax", "Some basics of Java Syntax", java_course);
+                Question q1 = new Question("123?", "1-2-3", "2", java_test1);
+            Test java_test2 = new Test("Java: JDBC", "Data processing over JDBC", java_course);
+                Question q2 = new Question("123?", "1-2-3", "2", java_test2);
+            Test java_test3 = new Test("Java: Spring Framework", "Check knowledge of Spring Framework", java_course);
+                Question q3 = new Question("123?", "1-2-3", "2", java_test3);
+
+
+        Course php_course = new Course("PHP language", "Learn the basics of PHP programming language.");
+            Test php_test1 = new Test("PHP: Syntax", "Some basics of PHP Syntax", php_course);
+                Question php_q1 = new Question("123?", "1-2-3", "2", php_test1);
+            Test php_test2 = new Test("PHP: Connecting to DB", "Data processing and storing using PHP", php_course);
+                Question php_q2 = new Question("123?", "1-2-3", "2", php_test2);
+
+
         User user1 = new User();
         user1.setName("a1");
         user1.setPassword("a1");
         user1.setEmail("a1@gmail.com");
-        user1.setRole("IS_AUTHENTICATED_FULLY");
+        user1.setRole("ROLE_STUDENT");
         passwordEncoder = new StandardPasswordEncoder();
         user1.setPassword(passwordEncoder.encode(user1.getPassword()));
         user1.setPasswordConfirm(user1.getPassword());
         userService.save(user1);
 
         try {
-            courseService.save(course1);
-            courseService.save(course2);
-            courseService.save(course3);
-            testService.save(test);
-            questionService.save(question);
+            courseService.save(java_course);
+            courseService.save(php_course);
+            testService.save(java_test1);
+            testService.save(java_test2);
+            testService.save(java_test3);
+            testService.save(php_test1);
+            testService.save(php_test2);
+            questionService.save(q1);
+            questionService.save(q2);
+            questionService.save(q3);
+            questionService.save(php_q1);
+            questionService.save(php_q2);
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        try {
-            List<Course> list = courseService.findAll();
-            System.out.println("----------------------Debug------------------------");
-            for (Course c : list) {
-                System.out.format("Course #%d: %s\n", c.getId(), c.getName());
-                for (Test t : c.getTestList()) {
-                    System.out.format("\t Test #%d: %s\n", t.getId(), t.getName());
-                    for (Question q : t.getQuestionList()) {
-                        System.out.format("\t\t Question #%d: %s\n", q.getId(), q.getText());
-                    }
-                }
-            }
-            System.out.println("----------------------Debug------------------------");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
     }
 }
