@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html>
@@ -1090,9 +1091,9 @@
     <div class="navbar-collapse collapse navbar-inverse navbar-inverse-collapse">
         <ul class="nav navbar-nav">
             <li class="active"><a href="#">Testing system</a></li>
-            <li><a href="javascript:void(0)">NetCracker</a></li>
+            <li><a href="<c:url value='http://edu-netcracker.com/' />">NetCracker</a></li>
             <li class="dropdown">
-                <a href="<c:url value='http://edu-netcracker.com/' />" data-target="#" class="dropdown-toggle"
+                <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle"
                    data-toggle="dropdown">Courses
                     <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -1187,21 +1188,35 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>dase</td>
-                        <td>100</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>qplk</td>
-                        <td>95</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>fade</td>
-                        <td>75</td>
-                    </tr>
+                    <form:form action="" method="put" modelAttribute="userGrid">
+                        <c:forEach var="user" items="${userGrid}">
+                            <th>${user.id}</th>
+                            <th>${user.name}</th>
+                            <th>${user.score}</th>
+                        </c:forEach>
+                    </form:form>
+                    <form:form action="" method="put" modelAttribute="userGrid">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Password</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <c:forEach var="user" items="${userGrid}">
+                                <tr>
+                                    <td>
+                                            ${user.name}
+                                    </td>
+                                    <td>
+                                            ${user.password}
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
+                    </form:form>
                     </tbody>
                 </table>
             </div>

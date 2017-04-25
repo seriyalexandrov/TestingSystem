@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 
-    <title>Registration</title>
+    <title>NetCracker</title>
     <link rel="shortcut icon" href="http://ru.javasql.center/theme/image.php/shoehorn/theme/1443184510/favicon">
 
     <!-- Material Design fonts -->
@@ -1091,9 +1091,9 @@
     <div class="navbar-collapse collapse navbar-inverse navbar-inverse-collapse">
         <ul class="nav navbar-nav">
             <li class="active"><a href="#">Testing system</a></li>
-            <li><a href="javascript:void(0)">NetCracker</a></li>
+            <li><a href="<c:url value='http://edu-netcracker.com/' />">NetCracker</a></li>
             <li class="dropdown">
-                <a href="<c:url value='http://edu-netcracker.com/' />" data-target="#" class="dropdown-toggle"
+                <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle"
                    data-toggle="dropdown">Courses
                     <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -1126,40 +1126,13 @@
                    data-toggle="dropdown"><img src="<c:url value="/resources/images/settings.png" />">
                     <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <c:if test="${pageContext.request.userPrincipal.name == null}">
-                        <li>
-                            <a href="#" class="btn btn-raised btn-sm">My Profile
-                                <div class="ripple-container"></div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="btn btn-raised btn-sm">Settings
-                                <div class="ripple-container"></div>
-                            </a>
-                        </li>
-                        <li>
-                            <form class="navbar-form" action="${contextPath}/login">
-                                <a href="#ModalSign" class="btn btn-raised btn-sm btn-success"
-                                   data-toggle="modal" data-target="#login-modal">Sign in</a>
-                            </form>
+                    <li>
+                        <form class="navbar-form" action="${contextPath}/login">
+                            <a href="#ModalSign" class="btn btn-raised btn-sm btn-success"
+                               data-toggle="modal" data-target="#login-modal">Sign in</a>
+                        </form>
 
-                        </li>
-                    </c:if>
-                    <c:if test="${pageContext.request.userPrincipal.name != null}">
-                        <li>
-                            <form class="navbar-form " action="${contextPath}/logout">
-                                <a href="<c:url value="/logout" />">Log out</a>
-                                    <%--<a href="<c:url value="j_spring_security_logout" />"--%>
-                                    <%--class="btn btn-raised btn-sm btn-success"--%>
-                                    <%--data-toggle="modal">Log out</a>--%>
-                            </form>
-                        </li>
-                        <li>
-                            <a href="#" class="btn btn-raised btn-sm">Create account
-                                <div class="ripple-container"></div>
-                            </a>
-                        </li>
-                    </c:if>
+                    </li>
                 </ul>
             </li>
         </ul>
