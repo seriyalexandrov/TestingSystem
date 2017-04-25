@@ -1081,7 +1081,7 @@
             </form>
 
             <div class="login-help">
-                <a href="#">Register</a> - <a href="#">Forgot Password</a>
+                <a href="<c:url value='registration' />">Register</a> - <a href="#">Forgot Password</a>
             </div>
         </div>
     </div>
@@ -1126,6 +1126,16 @@
                     <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <c:if test="${pageContext.request.userPrincipal.name == null}">
+
+                        <li>
+                            <form class="navbar-form" action="${contextPath}/login">
+                                <a href="#ModalSign" class="btn btn-raised btn-sm btn-success"
+                                   data-toggle="modal" data-target="#login-modal">Sign in</a>
+                            </form>
+
+                        </li>
+                    </c:if>
+                    <c:if test="${pageContext.request.userPrincipal.name != null}">
                         <li>
                             <a href="#" class="btn btn-raised btn-sm">My Profile
                                 <div class="ripple-container"></div>
@@ -1137,26 +1147,12 @@
                             </a>
                         </li>
                         <li>
-                            <form class="navbar-form" action="${contextPath}/login">
-                                <a href="#ModalSign" class="btn btn-raised btn-sm btn-success"
-                                   data-toggle="modal" data-target="#login-modal">Sign in</a>
-                            </form>
-
-                        </li>
-                    </c:if>
-                    <c:if test="${pageContext.request.userPrincipal.name != null}">
-                        <li>
                             <form class="navbar-form " action="${contextPath}/logout">
-                                <a href="<c:url value="/logout" />">Log out</a>
-                                <%--<a href="<c:url value="j_spring_security_logout" />"--%>
-                                   <%--class="btn btn-raised btn-sm btn-success"--%>
-                                   <%--data-toggle="modal">Log out</a>--%>
+                                <a href="<c:url value="j_spring_security_logout" />">Log out</a>
+                                    <%--<a href="<c:url value="j_spring_security_logout" />"--%>
+                                    <%--class="btn btn-raised btn-sm btn-success"--%>
+                                    <%--data-toggle="modal">Log out</a>--%>
                             </form>
-                        </li>
-                        <li>
-                            <a href="#" class="btn btn-raised btn-sm">Create account
-                                <div class="ripple-container"></div>
-                            </a>
                         </li>
                     </c:if>
                 </ul>

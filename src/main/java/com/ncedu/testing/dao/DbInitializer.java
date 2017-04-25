@@ -35,7 +35,7 @@ public class DbInitializer {
         user1.setName("a1");
         user1.setPassword("a1");
         user1.setEmail("a1@gmail.com");
-        user1.setRole("IS_AUTHENTICATED_FULLY");
+        user1.setRole("ROLE_USER");
         passwordEncoder = new StandardPasswordEncoder();
         user1.setPassword(passwordEncoder.encode(user1.getPassword()));
         user1.setPasswordConfirm(user1.getPassword());
