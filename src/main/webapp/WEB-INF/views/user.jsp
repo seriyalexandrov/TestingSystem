@@ -142,7 +142,7 @@
     <style>
         .loginmodal-container {
             padding: 30px;
-            max-width: 5500px;
+            max-width: 350px;
             width: 100% !important;
             background-color: #F7F7F7;
             margin: 0 auto;
@@ -1071,25 +1071,6 @@
     <![endif]-->
 </head>
 <body>
-<!--<a href="#" data-toggle="modal" data-target="#login-modal">Login</a>-->
-<%--<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"--%>
-<%--style="display: none;">--%>
-<%--<div class="modal-dialog">--%>
-<%--<div class="loginmodal-container">--%>
-<%--<h1>Login to Your Account</h1><br>--%>
-<%--<form action="<c:url value='j_spring_security_check' />" method="POST">--%>
-<%--<input type="text" name="j_username" placeholder="Username">--%>
-<%--<input type="password" name="j_password" placeholder="Password">--%>
-<%--<input type="submit" name="login" class="login loginmodal-submit" value="Login">--%>
-<%--</form>--%>
-
-<%--<div class="login-help">--%>
-<%--<a href="<c:url value='registration' />">Register</a> - <a href="#">Forgot Password</a>--%>
-<%--</div>--%>
-<%--</div>--%>
-<%--</div>--%>
-<%--</div>--%>
-
 
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
      style="display: none;">
@@ -1128,7 +1109,7 @@
                             <legend class="text-center">Registration</legend>
 
                             <fieldset class="text-center">
-                                <div class="row text-left col-md-6" style="margin-left: 24%">
+                                <div class="row text-left col-md-6" >
                                         <%--<div class="form-group">--%>
                                         <%--<label for="first_name">First name</label>--%>
                                         <%--<input type="text" class="form-control" name="" id="first_name"--%>
@@ -1139,28 +1120,28 @@
                                         <form:label for="name" path="name">Full Name:</form:label>
                                         <form:errors path="name"/>
                                         <form:input cssClass="form-control" id="name" placeholder="Full Name"
-                                                    path="name"/>
+                                                    path="name" cssStyle="width: 290px"/>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="email">Email</label>
                                         <form:errors path="email"/>
                                         <form:input cssClass="form-control" id="email" placeholder="Email"
-                                                    path="email"/>
+                                                    path="email" cssStyle="width: 290px"/>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="password">Password</label>
                                         <form:errors path="password"/>
                                         <form:password cssClass="form-control" id="password" placeholder="Password"
-                                                       path="password"/>
+                                                       path="password" cssStyle="width: 290px"/>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="password">Confirm Password</label>
                                         <form:errors path="passwordConfirm"/>
-                                        <form:password cssClass="form-control" id="confirm_password"
-                                                       placeholder="Confirm Password" path="passwordConfirm"/>
+                                        <form:password cssClass="form-control" id="confirm_password" placeholder="Confirm Password"
+                                                       path="passwordConfirm" cssStyle="width: 290px"/>
                                     </div>
 
                                 </div>
