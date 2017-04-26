@@ -8,7 +8,7 @@
 		http://www.springframework.org/schema/security/spring-security.xsd">
 
     <security:http>
-        <security:form-login login-page="/login" authentication-failure-url="/login?failed"/>
+        <security:form-login login-page="/home" authentication-failure-url="/login?failed"/>
         <security:logout/>
         <security:intercept-url pattern="/admin/*" access="ROLE_ADMIN"/>
         <security:intercept-url pattern="/student/*" access="ROLE_STUDENT"/>
