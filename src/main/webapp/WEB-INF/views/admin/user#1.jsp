@@ -1,12 +1,8 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-
-
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -1071,132 +1067,24 @@
     <![endif]-->
 </head>
 <body>
-<!--<a href="#" data-toggle="modal" data-target="#login-modal">Login</a>-->
-<%--<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"--%>
-     <%--style="display: none;">--%>
-    <%--<div class="modal-dialog">--%>
-        <%--<div class="loginmodal-container">--%>
-            <%--<h1>Login to Your Account</h1><br>--%>
-            <%--<form action="<c:url value='j_spring_security_check' />" method="POST">--%>
-                <%--<input type="text" name="j_username" placeholder="Username">--%>
-                <%--<input type="password" name="j_password" placeholder="Password">--%>
-                <%--<input type="submit" name="login" class="login loginmodal-submit" value="Login">--%>
-            <%--</form>--%>
-
-            <%--<div class="login-help">--%>
-                <%--<a href="<c:url value='registration' />">Register</a> - <a href="#">Forgot Password</a>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-    <%--</div>--%>
-<%--</div>--%>
-
 
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
      style="display: none;">
     <div class="modal-dialog">
-        <div class="bs-component">
-            <div class="loginmodal-container">
-                <ul class="nav nav-tabs" style="margin-bottom: 15px;">
-                    <li class=""><a href="#login" data-toggle="tab" aria-expanded="false" id="defaultOpen#1"
-                                    onclick="openCity(event, 'London')">Login
-                        <div class="ripple-container"></div>
-                    </a></li>
-                    <li class=""><a href="#registration" data-toggle="tab" aria-expanded="false">Registration
-                        <div class="ripple-container"></div>
-                    </a></li>
-                </ul>
-                <div id="login_registration" class="tab-content">
-                    <div id="login" class="tab-pane fade">
+        <div class="loginmodal-container">
+            <h1>Login to Your Account</h1><br>
+            <form>
+                <input type="text" name="user" placeholder="Username">
+                <input type="password" name="pass" placeholder="Password">
+                <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+            </form>
 
-                        <h1>Login to Your Account</h1><br>
-                        <form action="<c:url value='j_spring_security_check' />" method="POST">
-                            <input type="text" name="j_username" placeholder="Username">
-                            <input type="password" name="j_password" placeholder="Password">
-                            <input type="submit" name="login" class="login loginmodal-submit" value="Login">
-                        </form>
-
-                        <div class="login-help">
-                            <a href="#">Forgot Password</a>
-                        </div>
-                    </div>
-
-                    <div id="registration" class="tab-pane fade">
-                        <h1>Make an account</h1><br>
-                        <%----%>
-                        <%--<form:form action="" method="post" modelAttribute="user">--%>
-
-                            <%--<legend class="text-center">Registration</legend>--%>
-
-                            <%--<fieldset class="text-center">--%>
-                                <%--<div class="row text-left col-md-6" style="margin-left: 24%">--%>
-                                        <%--&lt;%&ndash;<div class="form-group">&ndash;%&gt;--%>
-                                        <%--&lt;%&ndash;<label for="first_name">First name</label>&ndash;%&gt;--%>
-                                        <%--&lt;%&ndash;<input type="text" class="form-control" name="" id="first_name"&ndash;%&gt;--%>
-                                        <%--&lt;%&ndash;placeholder="First Name">&ndash;%&gt;--%>
-                                        <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-
-                                    <%--<div class="form-group">--%>
-                                        <%--<form:label for="name" path="name">Full Name:</form:label>--%>
-                                        <%--<form:errors path="name"/>--%>
-                                        <%--<form:input cssClass="form-control" id="name" placeholder="Full Name"--%>
-                                                    <%--path="name"/>--%>
-                                    <%--</div>--%>
-
-                                    <%--<div class="form-group">--%>
-                                        <%--<label for="email">Email</label>--%>
-                                        <%--<form:errors path="email"/>--%>
-                                        <%--<form:input cssClass="form-control" id="email" placeholder="Email"--%>
-                                                    <%--path="email"/>--%>
-                                    <%--</div>--%>
-
-                                    <%--<div class="form-group">--%>
-                                        <%--<label for="password">Password</label>--%>
-                                        <%--<form:errors path="password"/>--%>
-                                        <%--<form:password cssClass="form-control" id="password" placeholder="Password"--%>
-                                                       <%--path="password"/>--%>
-                                    <%--</div>--%>
-
-                                    <%--<div class="form-group">--%>
-                                        <%--<label for="password">Confirm Password</label>--%>
-                                        <%--<form:errors path="passwordConfirm"/>--%>
-                                        <%--<form:password cssClass="form-control" id="confirm_password"--%>
-                                                       <%--placeholder="Confirm Password" path="passwordConfirm"/>--%>
-                                    <%--</div>--%>
-
-                                <%--</div>--%>
-                            <%--</fieldset>--%>
-
-                            <%--<div class="form-group">--%>
-                                <%--<div class="col-md-12">--%>
-                                    <%--<div class="checkbox">--%>
-                                        <%--<label>--%>
-                                            <%--<input type="checkbox" value="" id="">--%>
-                                            <%--I accept the <a href="#">terms and conditions</a>.--%>
-                                        <%--</label>--%>
-                                    <%--</div>--%>
-                                <%--</div>--%>
-                            <%--</div>--%>
-
-                            <%--<div class="form-group">--%>
-                                <%--<div class="col-md-12">--%>
-                                    <%--<button type="submit" class="btn btn-primary">--%>
-                                        <%--Register--%>
-                                    <%--</button>--%>
-                                    <%--<a href="#">Already have an account?</a>--%>
-                                <%--</div>--%>
-                            <%--</div>--%>
-                        <%--</form:form>--%>
-                        <%----%>
-                        <div class="login-help">
-                            <a href="#">Forgot Password</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="login-help">
+                <a href="#">Register</a> - <a href="#">Forgot Password</a>
             </div>
         </div>
     </div>
 </div>
-
 
 <div class="col-md-12 top-menu">
     <div class="navbar-collapse collapse navbar-inverse navbar-inverse-collapse">
@@ -1237,204 +1125,94 @@
                    data-toggle="dropdown"><img src="<c:url value="/resources/images/settings.png" />">
                     <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <c:if test="${pageContext.request.userPrincipal.name == null}">
+                    <li>
+                        <form class="navbar-form" action="${contextPath}/login">
+                            <a href="#ModalSign" class="btn btn-raised btn-sm btn-success"
+                               data-toggle="modal" data-target="#login-modal">Sign in</a>
+                        </form>
 
-                        <li>
-                            <form class="navbar-form" action="${contextPath}/login">
-                                <a href="#ModalSign" class="btn btn-raised btn-sm btn-success"
-                                   data-toggle="modal" data-target="#login-modal">Sign in</a>
-                            </form>
-
-                        </li>
-                    </c:if>
-                    <c:if test="${pageContext.request.userPrincipal.name != null}">
-                        <li>
-                            <a href="#" class="btn btn-raised btn-sm">My Profile
-                                <div class="ripple-container"></div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="btn btn-raised btn-sm">Settings
-                                <div class="ripple-container"></div>
-                            </a>
-                        </li>
-                        <li>
-                            <form class="navbar-form " action="${contextPath}/logout">
-                                <a href="<c:url value="j_spring_security_logout" />">Log out</a>
-                                    <%--<a href="<c:url value="j_spring_security_logout" />"--%>
-                                    <%--class="btn btn-raised btn-sm btn-success"--%>
-                                    <%--data-toggle="modal">Log out</a>--%>
-                            </form>
-                        </li>
-                    </c:if>
+                    </li>
                 </ul>
             </li>
         </ul>
     </div>
 </div>
 
-<div class="col-md-3 left-sidebar">
-    <div class="bs-component">
-        <ul class="nav nav-tabs" style="margin-bottom: 15px;">
-            <li class=""><a href="#Java-SE" data-toggle="tab" aria-expanded="false" onclick="openCity(event, 'London')"
-                            id="defaultOpen">Java SE
-                <div class="ripple-container"></div>
-            </a></li>
-            <li class=""><a href="#Oracle-Sql" data-toggle="tab" aria-expanded="false">Oracle Sql
-                <div class="ripple-container"></div>
-            </a></li>
-            <li class=""><a href="#XML" data-toggle="tab" aria-expanded="false">XML
-                <div class="ripple-container"></div>
-            </a></li>
-        </ul>
-        <div id="myTabContent" class="tab-content">
-            <div id="Java-SE" class="tab-pane fade">
-                <h3>Java SE</h3>
-                <table class="table table-striped table-hover ">
-                    <thead>
-                    <tr>
-                        <th>Place</th>
-                        <th>User</th>
-                        <th>Score</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <form:form action="" method="put" modelAttribute="userGrid">
-                        <c:forEach var="user" items="${userGrid}">
-                            <th>${user.id}</th>
-                            <th>${user.name}</th>
-                            <th>${user.score}</th>
-                        </c:forEach>
-                    </form:form>
-                    <form:form action="" method="put" modelAttribute="userGrid">
-                        <table>
-                            <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Password</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach var="user" items="${userGrid}">
-                                <tr>
-                                    <td>
-                                            ${user.name}
-                                    </td>
-                                    <td>
-                                            ${user.password}
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                            </tbody>
-                        </table>
-                    </form:form>
-                    </tbody>
-                </table>
-            </div>
-
-            <div id="Oracle-Sql" class="tab-pane fade">
-                <h3>Oracle Sql</h3>
-                <table class="table table-striped table-hover ">
-                    <thead>
-                    <tr>
-                        <th>Place</th>
-                        <th>User</th>
-                        <th>Score</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>dase</td>
-                        <td>100</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>qplk</td>
-                        <td>95</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>fade</td>
-                        <td>75</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div id="XML" class="tab-pane fade">
-                <h3>XML</h3>
-                <table class="table table-striped table-hover ">
-                    <thead>
-                    <tr>
-                        <th>Place</th>
-                        <th>User</th>
-                        <th>Score</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>dase</td>
-                        <td>100</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>qplk</td>
-                        <td>95</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>fade</td>
-                        <td>75</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<div class="col-md-9 content">
-    <div class="container">
+<div class="col-md-12 content-registration">
+    <div class="container" style="margin-top: 15px">
         <div class="row">
-            <div class="col-md-12 main-content"></div>
-            <div class="col-md-12 main-content"></div>
-            <div class="col-md-12 main-content"></div>
+            <div class="col-md-8 col-md-offset-2">
+                <%--<form role="form" method="POST" action="#">--%>
+                <form:form action="" method="post" modelAttribute="user">
+
+                    <legend class="text-center">Registration</legend>
+
+                    <fieldset class="text-center">
+                        <div class="row text-left col-md-6" style="margin-left: 24%">
+                                <%--<div class="form-group">--%>
+                                <%--<label for="first_name">First name</label>--%>
+                                <%--<input type="text" class="form-control" name="" id="first_name"--%>
+                                <%--placeholder="First Name">--%>
+                                <%--</div>--%>
+
+                            <div class="form-group">
+                                <form:label for="name" path="name">Full Name:</form:label>
+                                <form:errors path="name"/>
+                                <form:input cssClass="form-control" id="name" placeholder="Full Name" path="name"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <form:errors path="email"/>
+                                <form:input cssClass="form-control" id="email" placeholder="Email" path="email"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <form:errors path="password"/>
+                                <form:password cssClass="form-control" id="password" placeholder="Password"
+                                               path="password"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Confirm Password</label>
+                                <form:errors path="passwordConfirm"/>
+                                <form:password cssClass="form-control" id="confirm_password"
+                                               placeholder="Confirm Password" path="passwordConfirm"/>
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="" id="">
+                                    I accept the <a href="#">terms and conditions</a>.
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary">
+                                Register
+                            </button>
+                            <a href="#">Already have an account?</a>
+                        </div>
+                    </div>
+                </form:form>
+                <%--</form>--%>
+            </div>
+
         </div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        <!--<div class="col-md-12 head-block"></div>-->
-        <!--<div class="col-md-12 top-material"></div>-->
-
     </div>
 </div>
 
 <script src="//code.jquery.com//jquery.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
-<script>
-    function openCity(evt, cityName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-    // Get the element with id="defaultOpen" and click on it
-    document.getElementById("defaultOpen").click();
-    document.getElementById("defaultOpen#1").click();
-</script>
 <script src="js/bootstrap.min.js"></script>
 <script>
     $(document).ready(function () {

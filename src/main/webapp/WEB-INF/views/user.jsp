@@ -1071,25 +1071,6 @@
     <![endif]-->
 </head>
 <body>
-<!--<a href="#" data-toggle="modal" data-target="#login-modal">Login</a>-->
-<%--<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"--%>
-     <%--style="display: none;">--%>
-    <%--<div class="modal-dialog">--%>
-        <%--<div class="loginmodal-container">--%>
-            <%--<h1>Login to Your Account</h1><br>--%>
-            <%--<form action="<c:url value='j_spring_security_check' />" method="POST">--%>
-                <%--<input type="text" name="j_username" placeholder="Username">--%>
-                <%--<input type="password" name="j_password" placeholder="Password">--%>
-                <%--<input type="submit" name="login" class="login loginmodal-submit" value="Login">--%>
-            <%--</form>--%>
-
-            <%--<div class="login-help">--%>
-                <%--<a href="<c:url value='registration' />">Register</a> - <a href="#">Forgot Password</a>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-    <%--</div>--%>
-<%--</div>--%>
-
 
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
      style="display: none;">
@@ -1122,71 +1103,71 @@
 
                     <div id="registration" class="tab-pane fade">
                         <h1>Make an account</h1><br>
-                        <%----%>
-                        <%--<form:form action="" method="post" modelAttribute="user">--%>
 
-                            <%--<legend class="text-center">Registration</legend>--%>
+                        <form:form action="" method="post" modelAttribute="user">
 
-                            <%--<fieldset class="text-center">--%>
-                                <%--<div class="row text-left col-md-6" style="margin-left: 24%">--%>
-                                        <%--&lt;%&ndash;<div class="form-group">&ndash;%&gt;--%>
-                                        <%--&lt;%&ndash;<label for="first_name">First name</label>&ndash;%&gt;--%>
-                                        <%--&lt;%&ndash;<input type="text" class="form-control" name="" id="first_name"&ndash;%&gt;--%>
-                                        <%--&lt;%&ndash;placeholder="First Name">&ndash;%&gt;--%>
-                                        <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
+                            <legend class="text-center">Registration</legend>
 
-                                    <%--<div class="form-group">--%>
-                                        <%--<form:label for="name" path="name">Full Name:</form:label>--%>
-                                        <%--<form:errors path="name"/>--%>
-                                        <%--<form:input cssClass="form-control" id="name" placeholder="Full Name"--%>
-                                                    <%--path="name"/>--%>
-                                    <%--</div>--%>
+                            <fieldset class="text-center">
+                                <div class="row text-left col-md-6" >
+                                        <%--<div class="form-group">--%>
+                                        <%--<label for="first_name">First name</label>--%>
+                                        <%--<input type="text" class="form-control" name="" id="first_name"--%>
+                                        <%--placeholder="First Name">--%>
+                                        <%--</div>--%>
 
-                                    <%--<div class="form-group">--%>
-                                        <%--<label for="email">Email</label>--%>
-                                        <%--<form:errors path="email"/>--%>
-                                        <%--<form:input cssClass="form-control" id="email" placeholder="Email"--%>
-                                                    <%--path="email"/>--%>
-                                    <%--</div>--%>
+                                    <div class="form-group">
+                                        <form:label for="name" path="name">Full Name:</form:label>
+                                        <form:errors path="name"/>
+                                        <form:input cssClass="form-control" id="name" placeholder="Full Name"
+                                                    path="name" cssStyle="width: 290px"/>
+                                    </div>
 
-                                    <%--<div class="form-group">--%>
-                                        <%--<label for="password">Password</label>--%>
-                                        <%--<form:errors path="password"/>--%>
-                                        <%--<form:password cssClass="form-control" id="password" placeholder="Password"--%>
-                                                       <%--path="password"/>--%>
-                                    <%--</div>--%>
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <form:errors path="email"/>
+                                        <form:input cssClass="form-control" id="email" placeholder="Email"
+                                                    path="email" cssStyle="width: 290px"/>
+                                    </div>
 
-                                    <%--<div class="form-group">--%>
-                                        <%--<label for="password">Confirm Password</label>--%>
-                                        <%--<form:errors path="passwordConfirm"/>--%>
-                                        <%--<form:password cssClass="form-control" id="confirm_password"--%>
-                                                       <%--placeholder="Confirm Password" path="passwordConfirm"/>--%>
-                                    <%--</div>--%>
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <form:errors path="password"/>
+                                        <form:password cssClass="form-control" id="password" placeholder="Password"
+                                                       path="password" cssStyle="width: 290px"/>
+                                    </div>
 
-                                <%--</div>--%>
-                            <%--</fieldset>--%>
+                                    <div class="form-group">
+                                        <label for="password">Confirm Password</label>
+                                        <form:errors path="passwordConfirm"/>
+                                        <form:password cssClass="form-control" id="confirm_password" placeholder="Confirm Password"
+                                                       path="passwordConfirm" cssStyle="width: 290px"/>
+                                    </div>
 
-                            <%--<div class="form-group">--%>
-                                <%--<div class="col-md-12">--%>
-                                    <%--<div class="checkbox">--%>
-                                        <%--<label>--%>
-                                            <%--<input type="checkbox" value="" id="">--%>
-                                            <%--I accept the <a href="#">terms and conditions</a>.--%>
-                                        <%--</label>--%>
-                                    <%--</div>--%>
-                                <%--</div>--%>
-                            <%--</div>--%>
+                                </div>
+                            </fieldset>
 
-                            <%--<div class="form-group">--%>
-                                <%--<div class="col-md-12">--%>
-                                    <%--<button type="submit" class="btn btn-primary">--%>
-                                        <%--Register--%>
-                                    <%--</button>--%>
-                                    <%--<a href="#">Already have an account?</a>--%>
-                                <%--</div>--%>
-                            <%--</div>--%>
-                        <%--</form:form>--%>
-                        <%----%>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="" id="">
+                                            I accept the <a href="#">terms and conditions</a>.
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-primary">
+                                        Register
+                                    </button>
+                                    <a href="#">Already have an account?</a>
+                                </div>
+                            </div>
+                        </form:form>
+
                         <div class="login-help">
                             <a href="#">Forgot Password</a>
                         </div>
@@ -1301,32 +1282,12 @@
                     <tbody>
                     <form:form action="" method="put" modelAttribute="userGrid">
                         <c:forEach var="user" items="${userGrid}">
-                            <th>${user.id}</th>
-                            <th>${user.name}</th>
-                            <th>${user.score}</th>
-                        </c:forEach>
-                    </form:form>
-                    <form:form action="" method="put" modelAttribute="userGrid">
-                        <table>
-                            <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Password</th>
+                                <th>${user.id}</th>
+                                <th>${user.name}</th>
+                                <th>${user.score}</th>
                             </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach var="user" items="${userGrid}">
-                                <tr>
-                                    <td>
-                                            ${user.name}
-                                    </td>
-                                    <td>
-                                            ${user.password}
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                            </tbody>
-                        </table>
+                        </c:forEach>
                     </form:form>
                     </tbody>
                 </table>
