@@ -13,7 +13,7 @@
 
 <ul>
     <c:forEach var="test" items="${course.testList}">
-        <li><p><a href="tests/${test.id}">${test.name}</a></p></li>
+        <li><p><a href="../test/${test.id}">${test.name}</a></p></li>
     </c:forEach>
 </ul>
 </body>
