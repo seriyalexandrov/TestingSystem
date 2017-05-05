@@ -26,8 +26,18 @@ public class User implements Serializable {
     @NotEmpty
     private String passwordConfirm;
 
+    private int score = 0;
+
     @NotEmpty
     private String role = "ROLE_ADMIN";
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
 
     public String getEmail() {
         return email;
